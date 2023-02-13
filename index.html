@@ -1,0 +1,181 @@
+
+<head>
+	<title>!!! Foot Ball !!!</title>
+	<style>
+		body{
+			background-color: black;
+		}
+		h1{
+			text-align: center;
+			color: white;
+			font-size: 30px;
+		}
+		.container{
+			width: 900px;
+			height: 350px;
+			border: 2px solid red;
+			margin: 0 auto;
+		}
+		.player{
+			display: flex;
+		}
+		.player1{
+			color: white;
+			font-size: 25px;
+			margin-left: 350px;
+
+		}
+		.player2{
+			color: white;
+			font-size: 25px;
+			margin-left: 500px;
+		}
+		.leftlogo, .rightlogo{
+			margin:50px 20px;
+			display:flex;
+		}
+		.leftlogo{
+			float:left;
+			margin-bottom: -500px;
+			margin-right: 400px;
+			margin-left: 150px;
+		}
+		.rightlogo{
+			margin-top: 40px;
+			margin-left: 50px;
+			margin-right: 100px;
+			float:right;
+		}
+		
+		.leftcircle, .rightcircle{
+			margin: 200px 50px;
+			display: flex;
+		}
+		.leftcircle{
+			float: left;
+		}
+		.rightcircle{
+			margin-top: -50px;
+			float: right;
+		}
+		.circle
+        {
+        	width: 50px;
+        	height: 50px;
+        	border-radius: 30px;
+        	border: 1px solid white;
+        	margin-left: 4px;
+        } 
+        .score p{
+        	color: white;
+        }
+        .end{
+        	margin-top: 100px;
+        	margin-left: 300px;
+        }
+        button{
+        	padding: 20px 20px;
+        	border: none;
+        	background-color:honeydew;
+			margin-left: 50px;
+        }
+        .refresh{
+        	float: right;
+        	margin-right: 350px;
+        	margin-top: -70px;
+display:flex;
+        }
+        .center{
+        	display: flex;
+        }
+        .center p{
+			color: white;
+			margin-left: 30px;
+			margin-top: 220px;
+        }
+        .wait{
+        	margin-left: 200px;
+margin-right:500px;
+        	margin-top: -40px;
+border:2px solid red;
+        	
+        }
+	</style>
+</head>
+<body>
+<h1>!!! FOOT BALL !!!</h1>
+<div class="player">
+	<p class="player1">Player 1</p>
+	<p class="player2">Player 2</p>
+</div>
+<div class=container>
+	<div class="cireclecontainer" >
+		<div class="leftlogo" id="leftlogo"><img src="C:\Users\Kumaravel\Pictures\player 1.jfif"></div>
+		<div class="rightlogo" id="rightlogo"><img src="C:\Users\Kumaravel\Pictures\player 2.jfif"></div>
+		<div class="leftcircle" id="leftcircle">
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>	
+		</div>
+		<div class="center">
+			<p id="p1score">0</p>
+			<p>:</p>
+			<p id="p2score">0</p>
+		</div>
+		<div class="rightcircle" id="rightcircle">
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>	
+		</div>
+	</div>
+</div>
+<div class="end">
+	<button onclick="myFunction()">Team Score</button>
+	<h1 class="wait" id="wait">Wait for Result</h1>
+	<button class="refresh" onclick="window.location.reload()">Refresh</button> >
+</div>
+<script>
+	var count1=0;
+    var count2=0;
+    var count=0;
+	function myFunction() {
+		var random1=Math.floor(Math.random()*100+1);
+		var random2=Math.floor(Math.random()*100+1);
+		if(random1%2==0)
+		{
+		 count1++;
+		 document.getElementById('p1score').textContent=count1;
+		 document.getElementById("leftcircle").children[count].style.backgroundColor='green';
+		}
+		else
+		{
+         document.getElementById("leftcircle").children[count].style.backgroundColor='red';
+		}
+		if(random2%2==0)
+		{
+		 count2++;
+		 document.getElementById('p2score').textContent=count2;
+		 document.getElementById("rightcircle").children[count].style.backgroundColor='green';
+		}
+		else
+		{
+		document.getElementById("rightcircle").children[count].style.backgroundColor='red';
+		}
+        count++;
+
+        if(count==5)
+        {
+        	if(count1>count2)
+        	document.getElementById('wait').textContent="Player 1 win the match";
+            if(count1<count2)
+            document.getElementById('wait').textContent="Player 2 win the match";
+            if(count1 == count2)
+            document.getElementById('wait').textContent="Match Draw";
+        }
+	}
+</script>
+</body>
